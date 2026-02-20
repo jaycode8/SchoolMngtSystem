@@ -21,7 +21,7 @@ void StudentManager::addStudent(const Student &student) {
 
 void StudentManager::listStudents() const {
   if (students.empty()) {
-    std::cout << "No students in memory";
+    std::cout << "No students in memory" << std::endl;
     return;
   }
 
@@ -46,6 +46,8 @@ void StudentManager::getStudent(int id) {
       std::cout << std::setw(WIDTH) << student.getName() << std::setw(WIDTH)
                 << student.getAdmission() << std::setw(WIDTH)
                 << student.getForm() << std::endl;
+    } else {
+      std::cout << "404 - Not Found" << std::endl;
     }
   }
 }
