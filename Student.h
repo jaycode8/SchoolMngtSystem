@@ -26,7 +26,8 @@ class StudentManager {
 public:
   void addStudent(const Student &student);
   void listStudents() const;
-  void getStudent(int id);
+  void getStudentById(int id);
+  void getStudentByAdm(int id);
 };
 
 #endif // STUDENT_H

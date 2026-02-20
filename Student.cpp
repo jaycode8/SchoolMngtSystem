@@ -26,28 +26,48 @@ void StudentManager::listStudents() const {
   }
 
   std::cout << std::left;
-  std::cout << std::setw(WIDTH) << "Name" << std::setw(WIDTH) << "AdmNo."
-            << std::setw(WIDTH) << "Form" << std::endl;
+  std::cout << std::setw(WIDTH / 3) << "Id" << std::setw(WIDTH + 10)
+            << "Full Names" << std::setw(WIDTH) << "AdmNo." << std::setw(WIDTH)
+            << "Form" << std::endl;
 
   for (auto &student : students) {
-    std::cout << std::setw(WIDTH) << student.getName() << std::setw(WIDTH)
+    std::cout << std::setw(WIDTH / 3) << student.getId()
+              << std::setw(WIDTH + 10) << student.getName() << std::setw(WIDTH)
               << student.getAdmission() << std::setw(WIDTH) << student.getForm()
               << std::endl;
   }
 }
 
-void StudentManager::getStudent(int id) {
+void StudentManager::getStudentById(int id) {
   for (auto &student : students) {
     if (student.getId() == id) {
       std::cout << std::left;
-      std::cout << std::setw(WIDTH) << "Name" << std::setw(WIDTH) << "AdmNo."
+      std::cout << std::setw(WIDTH / 3) << "Id" << std::setw(WIDTH + 10)
+                << "Full Names" << std::setw(WIDTH) << "AdmNo."
                 << std::setw(WIDTH) << "Form" << std::endl;
 
-      std::cout << std::setw(WIDTH) << student.getName() << std::setw(WIDTH)
-                << student.getAdmission() << std::setw(WIDTH)
-                << student.getForm() << std::endl;
-    } else {
-      std::cout << "404 - Not Found" << std::endl;
+      std::cout << std::setw(WIDTH / 3) << student.getId()
+                << std::setw(WIDTH + 10) << student.getName()
+                << std::setw(WIDTH) << student.getAdmission()
+                << std::setw(WIDTH) << student.getForm() << std::endl;
+      return;
+    }
+  }
+}
+
+void StudentManager::getStudentByAdm(int admNo) {
+  for (auto &student : students) {
+    if (student.getAdmission() == admNo) {
+      std::cout << std::left;
+      std::cout << std::setw(WIDTH / 3) << "Id" << std::setw(WIDTH + 10)
+                << "Full Names" << std::setw(WIDTH) << "AdmNo."
+                << std::setw(WIDTH) << "Form" << std::endl;
+
+      std::cout << std::setw(WIDTH / 3) << student.getId()
+                << std::setw(WIDTH + 10) << student.getName()
+                << std::setw(WIDTH) << student.getAdmission()
+                << std::setw(WIDTH) << student.getForm() << std::endl;
+      return;
     }
   }
 }
